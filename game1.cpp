@@ -35,6 +35,41 @@ struct blok
     int dni;
 };
 
+struct roslina katalog[10] =
+{
+    {"beetroot", 8, 6,9},
+    {"radish", 4, 3,5},
+    {"carrot", 8, 5,9},
+    {"parsley", 12, 10, 25},
+    {"leek", 10, 7, 12},
+    {"dill", 2, 2, 3},
+    {"celery", 10, 8, 14},
+    {"cabbage", 6, 4,7},
+    {"cauliflower", 10, 7,11},
+    {"spinach", 6, 5, 10},
+
+};
+
+
+void wyswietl_katalog(struct roslina* kat)
+{
+    printf("\n(prices in the catalog don't include discounts/profits)\n\n");
+    printf("name        growth in days  price in the shop  price on the market\n");
+    printf("beetroot    8               6.00 Zr            9.00 Zr\n");
+    printf("radish      4               3.00 Zr            5.00 Zr\n");
+    printf("carrot      8               5.00 Zr            9.00 Zr\n");
+    printf("parsley     12              10.00 Zr           25.00 Zr\n");
+    printf("leek        10              7.00 Zr            12.00 Zr\n");
+    printf("dill        2               2.00 Zr            3.00 Zr\n");
+    printf("celery      10              8.00 Zr            14.00 Zr\n");
+    printf("cabbage     6               4.00 Zr            7.00 Zr\n");
+    printf("cauliflower 10              7.00 Zr            11.00 Zr\n");
+    printf("spinach     6               5.00 Zr            10.00 Zr\n\n");
+
+
+
+}
+
 void wypelnienie_dni(struct day* tab, int end)
 {
     int i = 0;
@@ -105,6 +140,23 @@ void kakoy_den(int a)
     else if (a % 7 == 4) printf("Friday");
     else if (a % 7 == 5) printf("Saturday");
     else printf("Sunday");
+}
+
+void zbieranie_komunikat(struct plon* ekw, struct roslina* kat, int n)
+{
+    printf("You collected:\n");
+    int i = 0, flag = 0;
+    for (i; i < n; i++)
+    {
+        if (ekw[i].nowe > 0)
+        {
+            printf("%d x %s\n", ekw[i].nowe, kat[i].nazwa);
+            ekw[i].nowe = 0;
+            flag = 1;
+        }
+    }
+    if (flag == 0) printf("none");
+    printf("\n\n");
 }
 
 int main()
