@@ -159,6 +159,29 @@ void zbieranie_komunikat(struct plon* ekw, struct roslina* kat, int n)
     printf("\n\n");
 }
 
+void sow_proverka(int* ekw, struct blok* pol, int n, int id) // proverka polya
+{
+    int i = 0;
+    while (n > 0)
+    {
+        if (pol[i].stan == 0)
+        {
+            pol[i].id = id;
+            pol[i].stan++;
+            pol[i].dni = 0;
+            ekw[id]--;
+            n--;
+        }
+
+        i++;
+        if (i == 50 && n > 0)
+        {
+            "You don't have a place to sow more seeds";
+            break;
+        }
+    }
+}
+
 int main()
 {
 
