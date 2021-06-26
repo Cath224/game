@@ -59,6 +59,36 @@ void nachalo()
 
 }
 
+void rules()
+{
+    printf("\nTHE CITY\n");
+    printf("- you can visit it only once a day\n");
+    printf("and go to the shop or the market,\n");
+    printf("so chose wisely;\n");
+    printf("In the [shop] you can buy seeds and fertilizer.\n");
+    printf("There are often discounts for specific seeds.\n");
+    printf("It's closed on weekends and on some random days\n");
+    printf("On a [market] you can sell your plants.\n");
+    printf("Sometimes you can earn more on specific plants.\n");
+    printf("It's open on Tuesdays & Thursdays if there is no storm.\n\n");
+    printf("A FARM\n");
+    printf("Your field can fit 50 growing seeds at once\n");
+    printf("- you need to sew them by yourself, but they are collected\n");
+    printf("automatically. In ""Other"" you can check your field.\n");
+    printf("Once a day you cna use [fertilizer] that will\n");
+    printf("fasten your plants' growth a little.\n\n");
+    printf("A WEATHER\n");
+    printf("You have three weathers: sun, rain and storm.\n");
+    printf("Sunny weather for a few days in a row causes\n");
+    printf("drought and slows your plants' growth.\n");
+    printf("The storm causes closing of the market.\n\n");
+    printf("OTHER\n");
+    printf("IN ""Other"" section you can read this instruction again,,\n");
+    printf("Check weather forecast for a week, your items\n");
+    printf("or information about plants.\n\n");
+
+}
+
 void wyswietl_katalog(struct roslina* kat)
 {
     printf("\n(prices in the catalog don't include discounts/profits)\n\n");
@@ -191,10 +221,40 @@ void sow_proverka(int* ekw, struct blok* pol, int n, int id) // proverka polya
     }
 }
 
+void course_day(struct blok* pol, int n)
+{
+
+    int i = 0;
+    for (i; i < 50; i++)
+    {
+        if (pol[i].stan == 1) pol[i].dni = pol[i].dni + n;
+    }
+
+
+}
+
+void purchase(struct roslina* kat, int* ekw, int n, int id, int* kasa, int znizka)
+{
+    int cena = kat[id].cena_kup;
+    if (znizka == 1) cena = cena / 2;
+    if (cena * n > *kasa) printf("\nNot enough money\n");
+    else
+    {
+        *kasa = *kasa - (cena * n);
+        ekw[id] = ekw[id] + n;
+        printf("\nThe trade was successful!\n");
+    }
+
+}
+
+
 int main()
 {
     srand(time(NULL));
     nachalo();
+    rules();
+    system("pause");
+    system("cls");
     int heh;
     int kolvo = 50;
 }
