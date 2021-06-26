@@ -184,5 +184,6 @@ void sow_proverka(int* ekw, struct blok* pol, int n, int id) // proverka polya
 
 int main()
 {
+    int heh;
 
 }
