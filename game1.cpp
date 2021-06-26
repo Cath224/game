@@ -50,6 +50,14 @@ struct roslina katalog[10] =
 
 };
 
+void nachalo()
+{
+
+    printf("Welcome to BUSSINESSFARM\n");
+    printf("\nYou are a farmer and your money is counted in zuras(Zr);\nat the start you have 50.00 Zr and your goal is to earn more through selling your plants.\nyou have ");
+    printf("8 weeks for that, after this time the game ends\n");
+
+}
 
 void wyswietl_katalog(struct roslina* kat)
 {
@@ -155,7 +163,8 @@ void zbieranie_komunikat(struct plon* ekw, struct roslina* kat, int n)
             flag = 1;
         }
     }
-    if (flag == 0) printf("none");
+    if (flag == 0)
+        printf("none");
     printf("\n\n");
 }
 
@@ -184,6 +193,8 @@ void sow_proverka(int* ekw, struct blok* pol, int n, int id) // proverka polya
 
 int main()
 {
+    srand(time(NULL));
+    nachalo();
     int heh;
 
 }
