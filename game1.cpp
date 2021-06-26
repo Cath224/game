@@ -196,5 +196,5 @@ int main()
     srand(time(NULL));
     nachalo();
     int heh;
-
+    int kolvo = 50;
 }
