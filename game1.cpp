@@ -247,6 +247,21 @@ void purchase(struct roslina* kat, int* ekw, int n, int id, int* kasa, int znizk
 
 }
 
+void trade (struct roslina* kat, struct plon* ekw, int n, int id, int* kasa, float bonus)
+{
+    int cena = kat[id].cena_sprzedaj;
+    if (bonus == 1) cena = cena * 2;
+    if (n > ekw[id].szt) printf("You don't have that many of this plant\n");
+    else
+    {
+        ekw[id].szt = ekw[id].szt - n;
+        *kasa = *kasa + (n * cena);
+        printf("\nThe trade was successful!\n");
+    }
+
+
+}
+
 
 int main()
 {
