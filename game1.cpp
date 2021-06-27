@@ -261,6 +261,25 @@ void trade (struct roslina* kat, struct plon* ekw, int n, int id, int* kasa, flo
 
 
 }
+void weekly_forecast(struct dzien* tab, int i)
+{
+    int j;
+    i++;
+    printf("\n");
+    for (j = 0; j < 7; j++)
+    {
+
+        if (i + j < 56)
+        {
+            dzien_tygodnia(i + j);
+            printf(": ");
+            prognoza(tab, i + j);
+
+
+        }
+
+    }
+}
 
 
 int main()
