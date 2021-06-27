@@ -281,6 +281,17 @@ void weekly_forecast(struct dzien* tab, int i)
     }
 }
 
+void seeds(int* ekw_n, struct roslina* kat)
+{
+    int i = 0;
+    printf("\nAmount of seeds:\n");
+    while (i < 10)
+    {
+        if (ekw_n[i] > 0) printf("[%d]. %d x %s\n", i + 1, ekw_n[i], kat[i].nazwa);
+        i++;
+    }
+
+}
 
 int main()
 {
